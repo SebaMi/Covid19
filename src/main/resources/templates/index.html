@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Indice</title>
+</head>
+<body>
+<div align="center">
+    <h1>Casos reales COVID-19 en Argentina</h1>
+     <a href="/new_paciente">Generar un nuevo paciente</a>
+    <br/><br/>
+    <table border="1" cellpadding="10">
+        <thead>
+            <tr>
+            	<th>Id del Paciente</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Edad</th>
+                <th>Genero</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="paciente : ${pacientes}">
+                <td th:text="${paciente.id}">Id de paciente</td>
+                <td th:text="${paciente.nombre}">Nombre</td>
+                <td th:text="${paciente.apellido}">Apellido</td>
+                <td th:text="${paciente.edad}">Edad</td>
+                <td th:text="${paciente.genero}">Genero</td>
+                <td>
+                 <!--   <a th:href="/@{'/edit/' + ${paciente.id}}">Edit</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a th:href="/@{'/delete/' + ${paciente.id}}">Delete</a>  --> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>   
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form th:action="@{/crearPaciente}" th:object="${paciente}" method="POST">
+    	<input type="text" placeholder="Nombre" th:field="${paciente.nombre}"/>
+    	<input type="text" placeholder="Apellido" th:field="${paciente.apellido}"/>
+    	<input type="number" placeholder="Edad" th:field="${paciente.edad}"/>
+    	<input type="char" placeholder=" " th:field="${paciente.genero}"/>
+    		 
+    
+    
+
+    <ul>
+        <li th:each="sintoma : ${paciente.sintomas}">
+            <input type="checkbox" th:checked="false" th:field="*{sintomas}" th:value="${sintoma.id}" />
+            <label th:for="${sintoma.id}" th:text="${sintoma.sintoma}"></label>
+        </li>
+    </ul>
+>
+
+    <input type="submit" value="Crear paciente"/>
+</form>
+    
+</body>
+</html>
